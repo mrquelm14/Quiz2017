@@ -41,8 +41,9 @@ router.get(/(?!\/new$|\/edit$|\/play$|\/check$|\/session$|\/(\d+)$)\/[^\/]*$/, f
 //-----------------------------------------------------------
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-    res.render('index');
+router.get('/', function(req, res, next) {
+  res.render('index', {title: 'Quiz'});
+
 });
 
 // Pagina de creditos
@@ -50,6 +51,11 @@ router.get('/author', function (req, res, next) {
     res.render('author');
 });
 
+
+// Pagina de ayuda
+router.get('/help', function(req, res, next) {
+    res.render('help');
+});
 
 // Autoload de rutas que usen :quizId
 router.param('quizId', quizController.load);
@@ -153,6 +159,7 @@ router.delete('/users/:userId(\\d+)/favourites/:quizId(\\d+)',
     sessionController.loginRequired,
     sessionController.adminOrMyselfRequired,
     favouriteController.del);
+
 
 
 
