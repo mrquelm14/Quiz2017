@@ -1,0 +1,29 @@
+
+<div class="wideRow">
+<label for="preg"  class="itemNarrow">Pregunta:</label>
+<input type="text" class="itemWide" id="preg" name="question" value="<%= quiz.question %>" placeholder="Pregunta" autocomplete="off"/>
+</div>
+
+
+<div class="wideRow">
+<label for="resp"  class="itemNarrow">Respuesta:</label>
+<input type="text" class="itemWide" id="resp" name="answer" value="<%= quiz.answer %>" placeholder="Respuesta" autocomplete="off"/>
+</div>
+
+<br/>
+
+<label for="img">Adjuntar fichero:</label>
+<input type="file" id="img" name="image"/>
+
+<br/>
+
+<% if (quiz.id) { %>
+<label for="img">Mantener fichero adjunto actual:</label>
+<input type="checkbox" name="keepAttachment" value="1" checked>
+<% } %>
+
+<br/>
+
+<a href="/goback"><button type="button">Cancelar</button></a>
+
+<input type="submit" value="Salvar">
